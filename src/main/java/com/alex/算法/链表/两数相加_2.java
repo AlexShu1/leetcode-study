@@ -58,7 +58,8 @@ public class 两数相加_2 {
         dummy.next = head;
 
         int addNextValue = 0;
-        while (l1 != null || l2 != null || addNextValue > 0) {
+        // 循环终止条件分析: 只要有任意一个链表或者进位数据, 都应该再算一遍;
+        while (l1 != null || l2 != null) {
             // 进位数据节点: 需要每次参数运算.
             int sum = head.val;
 
@@ -82,6 +83,11 @@ public class 两数相加_2 {
                 head.next = new ListNode(addNextValue);
                 // 指针调节到下一个节点(也就是上一行的进位数据节点);
                 head = head.next;
+            }
+
+            // 上一个步骤已经把最后一个进位加入到了下一个node节点, 因此, 当两个链表都为空的时候, 可以直接退出.
+            if (l1 ==null && l2 == null) {
+                break;
             }
         }
 
