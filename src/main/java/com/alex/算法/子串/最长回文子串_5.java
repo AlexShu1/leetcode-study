@@ -99,6 +99,7 @@ public class 最长回文子串_5 {
             }
         }
 
+        // end + 1是因为subString方法导致的; 截取的是不包括end的
         return s.substring(start, end + 1);
     }
 
