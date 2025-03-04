@@ -1,31 +1,28 @@
 package com.alex.算法.栈;
 
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.*;
 
 /**
  * https://leetcode.cn/problems/valid-parentheses/description/?envType=study-plan-v2&envId=top-100-liked
- *
+ * <p>
  * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串 s ，判断字符串是否有效。
- *
+ * <p>
  * 有效字符串需满足：
- *
+ * <p>
  * 左括号必须用相同类型的右括号闭合。
  * 左括号必须以正确的顺序闭合。
  * 每个右括号都有一个对应的相同类型的左括号。
- *
+ * <p>
  * 示例 1：
- *
+ * <p>
  * 输入：s = "()"
  * 输出：true
  * 示例 2：
- *
+ * <p>
  * 输入：s = "()[]{}"
  * 输出：true
  * 示例 3：
- *
+ * <p>
  * 输入：s = "(]"
  * 输出：false
  */
@@ -63,37 +60,6 @@ public class 有效的括号_20 {
         }
 
         // 最后若栈不为空, 则括号不匹配
-        return stack.isEmpty();
-    }
-
-    public boolean isValid2(String str) {
-        if (str == null || str.isEmpty()) {
-            return true;
-        }
-
-        if (str.length() / 2 != 0) {
-            return false;
-        }
-
-        Map<Character, Character> pairs = new HashMap<>();
-        pairs.put(']', '[');
-        pairs.put('}', '{');
-        pairs.put(')', '(');
-
-        Deque<Character> stack = new LinkedList<>();
-        for (int i = 0; i < str.length(); i++) {
-            char c = str.charAt(i);
-            if (pairs.containsKey(c)) {
-                if (stack.isEmpty() || stack.peek() != pairs.get(c)) {
-                    return false;
-                }
-
-                stack.pop();
-            } else {
-                stack.push(c);
-            }
-        }
-
         return stack.isEmpty();
     }
 }
