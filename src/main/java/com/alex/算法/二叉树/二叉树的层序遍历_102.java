@@ -30,6 +30,7 @@ public class 二叉树的层序遍历_102 {
         queue.offer(root);
         while (!queue.isEmpty()) {
             List<Integer> level = new ArrayList<Integer>();
+            // 这里需要提出来一个length, 否则, 会导致死循环.
             int currentLevelSize = queue.size();
             // 遍历每一层的节点数据; 压入栈中; 等待下一次循环的时候, 弹出node, 再次不断重复.
             for (int i = 1; i <= currentLevelSize; ++i) {
