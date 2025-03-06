@@ -30,6 +30,9 @@ import java.util.Arrays;
  */
 public class 零钱兑换_322 {
 
+    public static void main(String[] args) {
+    }
+
     public int coinChange(int[] coins, int amount) {
         int max = amount + 1;
         int[] dp = new int[amount + 1];
