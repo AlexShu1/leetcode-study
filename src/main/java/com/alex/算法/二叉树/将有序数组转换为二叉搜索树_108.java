@@ -31,20 +31,4 @@ public class 将有序数组转换为二叉搜索树_108 {
         root.right = helper(nums, mid + 1, right);
         return root;
     }
-
-    public TreeNode sortedArrayToBSTV2(int[] nums) {
-        return helperV2(nums, 0, nums.length - 1);
-    }
-
-    public TreeNode helperV2(int[] nums, int left, int right) {
-        if (left > right) {
-            return null;
-        }
-
-        int mid = (left + right) / 2;
-        TreeNode root = new TreeNode(nums[mid]);
-        root.left = helperV2(nums, left, mid - 1);
-        root.right = helperV2(nums, mid + 1, right);
-        return root;
-    }
 }
