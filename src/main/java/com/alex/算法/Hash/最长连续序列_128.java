@@ -44,7 +44,7 @@ public class 最长连续序列_128 {
         int longestStreak = 0;
 
         for (int num : num_set) {
-            // 不包含代表, num是连续序列的最后一个元素
+            // 不包含代表, num是连续序列的第一个元素
             if (!num_set.contains(num - 1)) {
                 int currentNum = num;
                 int currentStreak = 1;
