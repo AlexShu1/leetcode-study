@@ -41,6 +41,9 @@ public class 两数之和_1 {
 
     /**
      * 核心算法：使用Hash算法进行计算.
+     *
+     * 优化思路：1. Map类型精确化, 减少装箱拆箱的成本
+     * 2.
      */
     public int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numMaps = new HashMap<>(nums.length);
@@ -57,4 +60,27 @@ public class 两数之和_1 {
 
         return new int[]{0,0};
     }
+
+    /**
+     * 有序数组
+     */
+    public int[] twoSumSorted(int[] nums, int target) {
+        int left = 0;
+        int right = nums.length - 1;
+
+        while (left < right) {
+            int sum = nums[left] + nums[right];
+
+            if (sum == target) {
+                return new int[]{left, right};
+            } else if (sum < target) {
+                left++;   // 和太小，左指针右移增大
+            } else {
+                right--;  // 和太大，右指针左移减小
+            }
+        }
+
+        return new int[]{-1, -1}; // 无解
+    }
+
 }
